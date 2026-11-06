@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: signal-desk-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # ONE worker on purpose: job progress lives in memory, so several workers would lose track of each other.
+    startCommand: gunicorn app:app --workers 1 --threads 8 --timeout 300 --bind 0.0.0.0:$PORT
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FIRECRAWL_API_KEY
+        sync: false
+      - key: ACCESS_CODE
+        sync: false
+      - key: FIRECRAWL_PROFILE
+        value: lean
+      - key: FIRECRAWL_CREDIT_BUDGET
+        value: "40"
+      - key: BRAIN_MODEL
+        value: openai/gpt-oss-120b
+      - key: EXTRACT_MODEL
+        value: openai/gpt-oss-20b
