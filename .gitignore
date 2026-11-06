@@ -1,0 +1,13 @@
+# secrets: never commit these
+.env
+.env.*
+!.env.example
+
+# local caches and environments
+.cache/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.vercel/
+.DS_Store
