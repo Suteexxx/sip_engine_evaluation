@@ -1,0 +1,11 @@
+flask>=3.0
+requests>=2.31
+pandas>=2.0
+groq>=0.11
+mcp>=1.2,<2
+google-play-scraper>=1.2.6
+youtube-comment-downloader>=0.1.76
+yt-dlp>=2024.8.6
+reportlab>=4.0
+python-dotenv>=1.0
+gunicorn>=22.0
