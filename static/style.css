@@ -1,0 +1,77 @@
+/* Midnight black · Electric cobalt · Acidic lime */
+:root{--ink:#04050a;--panel:#0a0d18;--line:#18214b;--text:#eef2ff;--mute:#8e99c9;--slate:#3a4470;
+--lime:#c6ff00;--cobalt:#1c4dff;--cobalt-hi:#6f93ff;--gain:var(--lime);--loss:var(--cobalt-hi);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;color:var(--text);font:400 16px/1.55 "Bricolage Grotesque",system-ui,sans-serif;
+ background:radial-gradient(900px 520px at 88% -8%,rgba(28,77,255,.30),transparent 62%),radial-gradient(600px 360px at -5% 105%,rgba(198,255,0,.07),transparent 60%),var(--ink);background-attachment:fixed}
+canvas#bg{position:fixed;inset:0;width:100%;height:100%;opacity:.42;pointer-events:none;z-index:0}
+.hero,main{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 20px}.hero{padding-top:64px}
+.eyebrow{font:600 13px "Martian Mono",monospace;color:var(--lime);margin:0 0 12px;letter-spacing:.04em;text-transform:uppercase}
+h1{font-weight:800;font-size:clamp(34px,6vw,60px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+h1 .hl{color:var(--lime)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.chip{font:600 12px "Martian Mono",monospace;color:var(--cobalt-hi);border:1px solid var(--cobalt);background:rgba(28,77,255,.14);padding:4px 11px;border-radius:999px}
+form{display:flex;gap:10px;flex-wrap:wrap}
+input{flex:1;min-width:260px;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:var(--text);font:inherit;padding:14px 16px;transition:border-color .2s,box-shadow .2s}
+input:focus{outline:none;border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(28,77,255,.35)}
+button,.btn{font:700 15px "Bricolage Grotesque",sans-serif;background:var(--lime);color:var(--ink);border:0;border-radius:12px;padding:13px 24px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .15s,box-shadow .15s}
+button:hover:not(:disabled),.btn:hover{transform:translateY(-1px);box-shadow:0 0 0 3px rgba(198,255,0,.25),0 8px 28px rgba(198,255,0,.18)}
+button:disabled{opacity:.5;cursor:progress}:focus-visible{outline:2px solid var(--cobalt-hi);outline-offset:2px}
+.log{font:13px/1.7 "Martian Mono",monospace;color:var(--mute);margin:16px 0;max-height:190px;overflow:auto}
+.log div::before{content:"› ";color:var(--lime)}.log .err{color:var(--cobalt-hi);font-weight:600}
+section{margin:56px 0}
+h2{font-size:26px;margin:0 0 6px}h2::before{content:"";display:inline-block;width:9px;height:9px;background:var(--lime);border-radius:2px;margin-right:10px;vertical-align:middle;position:relative;top:-2px}
+.sub{color:var(--mute);margin:0 0 16px;max-width:46em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-top:2px solid var(--cobalt);border-radius:14px;padding:16px;animation:rise .6s both;transition:border-color .2s}
+.card:hover{border-color:var(--cobalt);border-top-color:var(--lime)}
+.card b{display:block;font:600 30px "Martian Mono",monospace;color:var(--lime)}.card span{color:var(--mute);font-size:14px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:4px 0;color:var(--mute);font-size:15px}
+.stack{display:flex;height:22px;border-radius:7px;overflow:hidden;background:var(--line)}.stack i{transition:width 1s cubic-bezier(.2,.8,.2,1);width:0}
+.s{background:var(--lime)}.n{background:var(--slate)}.d{background:var(--cobalt)}
+.srow{margin:12px 0}.srow small{color:var(--mute);font-family:"Martian Mono",monospace;font-size:12px;display:block;margin-top:4px}
+.arow{display:grid;grid-template-columns:200px 1fr 130px;gap:12px;align-items:center;margin:8px 0}.track{position:relative;height:12px;background:var(--line);border-radius:6px}
+.track i{position:absolute;left:0;top:0;bottom:0;background:var(--cobalt);border-radius:6px;width:0;transition:width 1s}
+.track u{position:absolute;top:-3px;bottom:-3px;background:var(--lime);opacity:.9;border-radius:3px}
+.num{font:600 13px "Martian Mono",monospace;text-align:right}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th{color:var(--mute);font-weight:400;text-align:left;padding:8px;border-bottom:1px solid var(--cobalt)}td{padding:8px;border-bottom:1px solid var(--line)}
+td.m{font-family:"Martian Mono",monospace;font-size:13px}.scroll{overflow-x:auto}
+.tag{font:12px "Martian Mono",monospace;color:var(--lime)}.warn{border-left:3px solid var(--lime);padding:6px 12px;margin:6px 0;color:var(--mute);background:rgba(198,255,0,.05)}
+ul{padding-left:20px;color:var(--mute)}li::marker{color:var(--lime)}
+a{color:var(--cobalt-hi)}
+@media(max-width:640px){.arow{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---- v2 additions */
+.reuse{flex-basis:100%;font-size:13px;color:var(--mute);display:flex;gap:8px;align-items:center}.reuse input{flex:none;min-width:0;width:auto;padding:0}
+.h3{font-size:18px;margin:26px 0 6px}
+.q{font-size:15px;color:var(--mute);margin:0 0 6px}
+.answer{border-top-color:var(--lime);margin:14px 0}.answer h3{font-size:14px;font-family:"Martian Mono",monospace;color:var(--lime);text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px}
+.answer p{color:var(--text);font-size:17px;line-height:1.6;margin:8px 0}.answer ul{color:var(--text);font-size:15px}
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.card b.big{font-size:26px}.card small{display:block;color:var(--mute);font-size:12px;margin-top:2px}
+.nb{background:none;border:0;border-bottom:1px dashed var(--cobalt-hi);color:var(--text);font:600 13px "Martian Mono",monospace;padding:0;cursor:pointer;border-radius:0;text-align:left}
+.nb:hover:not(:disabled){transform:none;box-shadow:none;color:var(--lime);border-color:var(--lime)}.nb b{color:var(--lime);font-weight:600}
+.mute{color:var(--mute)}.defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:0 0 18px}
+.defs .card p{font-size:14px}.pill{font:600 11px "Martian Mono",monospace;padding:2px 8px;border-radius:999px;border:1px solid var(--line);margin-left:6px}
+.pill.sat{color:var(--lime);border-color:var(--lime)}.pill.dis{color:var(--cobalt-hi);border-color:var(--cobalt-hi)}.pill.neu{color:var(--mute)}
+.ntrow{display:grid;grid-template-columns:200px 1fr;gap:6px 14px;margin:10px 0;align-items:center}.ntrow .what{grid-column:2;color:var(--mute);font-size:13px;margin-top:-4px}
+.ntrow .track i{background:var(--slate)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mute);margin:6px 0}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.arow{grid-template-columns:230px 1fr 150px}
+.note{border-left:3px solid var(--cobalt);padding:6px 12px;margin:8px 0 14px;color:var(--mute);background:rgba(28,77,255,.07);font-size:14px}
+td small,.cell small{display:block;color:var(--mute);font-size:11px}tr.grp td{color:var(--lime);font:600 12px "Martian Mono",monospace;padding-top:16px;text-transform:uppercase}
+.chipbtn{display:inline-block;margin:4px 6px 0 0;padding:3px 9px;border-radius:999px;border:1px solid var(--cobalt);background:rgba(28,77,255,.12);color:var(--cobalt-hi);font:12px "Martian Mono",monospace;cursor:pointer}
+.chipbtn:hover{border-color:var(--lime);color:var(--lime);transform:none;box-shadow:none}
+.based{margin-top:10px;font-size:12px;color:var(--mute)}
+.chk{margin:4px 0;font-size:14px}.chk .ok{color:var(--lime)}.chk .no{color:var(--cobalt-hi)}
+details{margin:10px 0;color:var(--mute)}summary{cursor:pointer;color:var(--text)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.filters select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:inherit}
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--cobalt);border-radius:14px;max-width:760px;width:calc(100% - 32px);max-height:84vh;padding:18px}
+dialog::backdrop{background:rgba(2,3,8,.75)}.dh{display:flex;justify-content:space-between;gap:12px;align-items:center}.dh h3{margin:0;font-size:18px}.dh button{padding:6px 14px;font-size:13px}
+.ev{border-top:1px solid var(--line);padding:10px 0}.ev header{font:12px "Martian Mono",monospace;color:var(--mute)}.ev p{margin:6px 0;color:var(--text);font-size:15px}
+.ev mark{background:rgba(198,255,0,.25);color:var(--text);padding:0 2px;border-radius:3px}.ev small{color:var(--mute);font-size:12px}
+@media(max-width:640px){.arow,.ntrow{grid-template-columns:1fr}.ntrow .what{grid-column:1}}
+
+.codebox{flex-basis:100%}.codebox input{max-width:340px;min-width:0;padding:10px 14px;font-size:14px}
