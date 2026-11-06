@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Signal Desk: PM research agent</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/static/style.css"></head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<header class="hero"><p class="eyebrow">Signal Desk · orchestrated research agent</p>
+<h1>Ask a product question.<br><span class="hl">Get a quantified answer.</span></h1>
+<div class="chips" aria-label="Data sources"><span class="chip">Google Play</span><span class="chip">App Store</span><span class="chip">YouTube comments</span><span class="chip">Open web</span></div>
+<form id="f"><input id="q" value="Why do first-time SIP investors on Groww pause or stop, and who stays? Quantify satisfied vs not satisfied by segment." autocomplete="off"><button id="go">Run agent</button>
+<label class="reuse"><input type="checkbox" id="reuse" checked> Reuse saved data for this question if I have it (spends 0 Firecrawl credits)</label><div class="codebox" id="codebox" hidden><input id="code" type="password" placeholder="Access code (needed for fresh runs)" autocomplete="off"></div></form>
+<div id="log" class="log" role="log" aria-live="polite"></div></header>
+<main id="out" hidden>
+<section id="head"></section>
+<section class="grid" id="kpi"></section>
+<section><h2>How we sorted the posts</h2><p class="sub">Every post is placed in exactly one box. Click any number in this report to see the original posts behind it.</p><div id="cls"></div></section>
+<section><h2>Satisfaction by source</h2><div id="src"></div><h3 class="h3">Where the data came from</h3><p class="sub">Every site the agent read. "About SIPs" is what is left after dropping posts that are off-topic.</p><div class="scroll" id="sites"></div></section>
+<section><h2>Why users are not satisfied</h2><p class="sub">Share of the not-satisfied posts that complain about each topic. One post can mention several topics.</p><div id="asp"></div><h3 class="h3">What satisfied users like</h3><div id="praise"></div></section>
+<section><h2>Who stays and who leaves</h2><div id="sf"></div></section>
+<section><h2>Segments</h2><div class="scroll" id="seg"></div></section>
+<section><h2>Findings</h2><div id="nar"></div></section>
+<section><h2>Method, checks and evidence</h2><div id="meth"></div><p><a class="btn" id="pdf" href="#">Download PDF report</a></p></section>
+</main>
+<dialog id="dlg"><div class="dh"><h3 id="dt"></h3><button id="dx" type="button">Close</button></div><div id="ds" class="sub"></div><div id="db"></div></dialog>
+<script src="/static/app.js"></script></body></html>
